@@ -7,7 +7,7 @@ var score = 0;
 function playQuiz(question, answer){
   var userAnswer = readlineSync.question(question);
 
-  if(userAnswer===answer){
+  if(userAnswer.toLowerCase() === answer || userAnswer.toUpperCase() === answer){
     console.log('You are Right');
     score++;
     console.log('Your score is ', score);
@@ -49,3 +49,20 @@ for(let i =0; i< questions.length; i++){
 
 
 console.log('Your final score is ', score );
+
+
+
+
+var highScore = [
+  {
+    name: "Anand",
+    score: 10,
+  },
+  {
+    name: "Bakshi",
+    score: 8,
+  }
+];
+for(var i=0; i<highScore.length; i++){
+  console.log(highScore[i].name," ",  highScore[i].score);
+}
