@@ -70,7 +70,7 @@ for(var i=0; i<highScore.length; i++){
 
 for(var i=0; i<highScore.length; i++){
     if(score>=5){
-      highScore[i].push({name: userName, score: score});
+      highScore.push({name: userName, score: score});
       console.log('Booyah you won the quiz, please share screenshot');
       break;
     }
