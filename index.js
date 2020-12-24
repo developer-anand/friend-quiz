@@ -2,12 +2,13 @@ var readlineSync = require('readline-sync');
 
 var userName = readlineSync.question('What is your name ? ' );
 console.log("Welcome "+ userName + " Let's see how well you know Me ");
+console.log('----------------------------');
 var score = 0;
 
 function playQuiz(question, answer){
   var userAnswer = readlineSync.question(question);
 
-  if(userAnswer.toLowerCase() === answer || userAnswer.toUpperCase() === answer){
+  if(userAnswer.toLowerCase() === answer){
     console.log('You are Right');
     score++;
     console.log('Your score is ', score);
@@ -20,25 +21,25 @@ function playQuiz(question, answer){
 }
 
 var questions = [
-  question1 = {
+  {
     question :'Where do i live ',
     answer: 'jaipur'
   },
-  question2 = {
+  {
     question:'Tell me my Age ',
     answer : '20'
   },
-  question3 = {
+  {
     question:'My faviorte programming language ',
     answer : 'c++'
   },
-  question4 = {
+  {
     question:'Which stack i like ',
-    answer : 'React'
+    answer : 'react'
   },
-  question5 = {
+  {
     question:'Which movie i love ',
-    answer : 'IronMan'
+    answer : 'ironman'
   }
 
 ];
@@ -47,22 +48,34 @@ for(let i =0; i< questions.length; i++){
   playQuiz(questions[i].question, questions[i].answer);
 }
 
-
+console.log("\n");
 console.log('Your final score is ', score );
-
-
-
+console.log("\n");
+console.log('Best Scores');
 
 var highScore = [
   {
-    name: "Anand",
-    score: 10,
+    name: "Sam",
+    score: 4
   },
   {
-    name: "Bakshi",
-    score: 8,
+    name: "Jay",
+    score: 3
   }
 ];
 for(var i=0; i<highScore.length; i++){
-  console.log(highScore[i].name," ",  highScore[i].score);
+  console.log(highScore[i].name," ", highScore[i].score);
 }
+
+
+for(var i=0; i<highScore.length; i++){
+    if(score>=5){
+      highScore[i].push({name: userName, score: score});
+      console.log('Booyah you won the quiz, please share screenshot');
+      break;
+    }
+    else{
+        console.log('Sry you lost Try again');
+      }
+    }
+    
